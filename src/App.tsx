@@ -5,7 +5,7 @@ export type Post = {
 };
 
 function App() {
-  return <div>App</div>;
+  return <main></main>;
 }
 
 export default App;
