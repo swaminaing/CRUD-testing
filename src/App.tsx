@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getPosts, deletePost, updatePost } from "./utils/http";
+import { getPosts, deletePost, updatePost, addPosts } from "./utils/http";
 import Post from "./components/Post";
 import BlogPosts from "./components/BlogPosts";
 
@@ -50,13 +50,24 @@ function App() {
     setPosts(updatedPosts);
   }
 
+  async function handleAddPost() {
+    const newPost: Post = {
+      id: posts.length ? posts[posts.length - 1].id + 1 : 1,
+      title: "New Post",
+      content: "This is a new post",
+    };
+
+    setPosts([...posts, newPost]);
+
+    addPosts(newPost);
+  }
+
   return (
     <main>
-      <nav></nav>
+      <nav>
+        <button onClick={handleAddPost}>Add Post + </button>
+      </nav>
       <div className="container">
-        <aside>
-          <div>sidebars</div>
-        </aside>
         <section className="content">
           <BlogPosts
             posts={posts}

@@ -8,8 +8,7 @@ export async function getPosts() {
   return response.json();
 }
 
-export async function addPosts() {
-  const body = {};
+export async function addPosts(body: any) {
   const response = await fetch("http://localhost:3000/posts/", {
     method: "POST",
     body: JSON.stringify(body),

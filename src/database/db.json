@@ -14,6 +14,31 @@
       "id": 3,
       "title": "Post 3",
       "content": "lorem ipsum dolor sit amet consectetur adipiscing elit"
+    },
+    {
+      "id": 4,
+      "title": "New Post",
+      "content": "This is a new post"
+    },
+    {
+      "id": 5,
+      "title": "New Post",
+      "content": "This is a new post"
+    },
+    {
+      "id": 6,
+      "title": "New Post",
+      "content": "This is a new post"
+    },
+    {
+      "id": 7,
+      "title": "New Post",
+      "content": "This is a new post"
+    },
+    {
+      "id": 8,
+      "title": "New Post",
+      "content": "This is a new post"
     }
   ]
 }
