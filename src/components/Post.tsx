@@ -4,13 +4,17 @@ export type PostProps = {
   id: number;
   title: string;
   children: ReactNode;
+
+  onDeletePost: (id: number) => void;
 };
 
-function Post({ id, title, children }: PostProps) {
+function Post({ id, title, children, onDeletePost }: PostProps) {
   return (
-    <div key={id}>
+    <div className="post" key={id}>
       <h2>{title}</h2>
       <p>{children}</p>
+
+      <button onClick={() => onDeletePost(id)}>Delete</button>
     </div>
   );
 }

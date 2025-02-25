@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getPosts } from "./utils/http";
+import { getPosts, deletePost } from "./utils/http";
 import Post from "./components/Post";
 import BlogPosts from "./components/BlogPosts";
 
@@ -26,9 +26,28 @@ function App() {
     }
   }, []);
 
+  async function handleDeletePost(id: number) {
+    const remainingPosts = posts.filter((post) => post.id !== id);
+    setPosts(remainingPosts);
+
+    try {
+      await deletePost(id);
+    } catch {
+      throw new Error("Failed to delete post");
+    }
+  }
+
   return (
     <main>
-      <BlogPosts posts={posts} />
+      <nav></nav>
+      <div className="container">
+        <aside>
+          <div>sidebars</div>
+        </aside>
+        <section className="content">
+          <BlogPosts posts={posts} onDeletePost={handleDeletePost} />
+        </section>
+      </div>
     </main>
   );
 }
