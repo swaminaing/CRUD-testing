@@ -4,15 +4,21 @@ import { type Post as P } from "../App";
 type BlogPostsProps = {
   posts: P[];
   onDeletePost: (id: number) => void;
+  onUpdatePost: (id: number) => void;
 };
 
-function BlogPosts({ posts, onDeletePost }: BlogPostsProps) {
+function BlogPosts({ posts, onDeletePost, onUpdatePost }: BlogPostsProps) {
   return (
     <ul>
       {posts.map((post) => {
         return (
-          <li>
-            <Post id={post.id} title={post.title} onDeletePost={onDeletePost}>
+          <li key={post.id}>
+            <Post
+              id={post.id}
+              title={post.title}
+              onDeletePost={onDeletePost}
+              onUpdatePost={onUpdatePost}
+            >
               {post.content}
             </Post>
           </li>

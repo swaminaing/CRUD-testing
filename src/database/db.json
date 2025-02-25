@@ -1,8 +1,18 @@
 {
   "posts": [
     {
+      "id": 1,
+      "title": "Post 1",
+      "content": "lorem ipsum dolor sit amet consectetur adipiscing elit"
+    },
+    {
       "id": 2,
-      "title": "Post 2",
+      "title": "Updated title",
+      "content": "Updated content"
+    },
+    {
+      "id": 3,
+      "title": "Post 3",
       "content": "lorem ipsum dolor sit amet consectetur adipiscing elit"
     }
   ]

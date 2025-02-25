@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getPosts, deletePost } from "./utils/http";
+import { getPosts, deletePost, updatePost } from "./utils/http";
 import Post from "./components/Post";
 import BlogPosts from "./components/BlogPosts";
 
@@ -37,6 +37,19 @@ function App() {
     }
   }
 
+  async function handleUpdatePost(id: number) {
+    const updatedPosts = posts.map((post) => {
+      if (post.id === id) {
+        updatePost(id, "Updated title", "Updated content");
+        return { ...post, title: "Updated title", content: "Updated content" };
+      }
+
+      return post;
+    });
+
+    setPosts(updatedPosts);
+  }
+
   return (
     <main>
       <nav></nav>
@@ -45,7 +58,11 @@ function App() {
           <div>sidebars</div>
         </aside>
         <section className="content">
-          <BlogPosts posts={posts} onDeletePost={handleDeletePost} />
+          <BlogPosts
+            posts={posts}
+            onDeletePost={handleDeletePost}
+            onUpdatePost={handleUpdatePost}
+          />
         </section>
       </div>
     </main>

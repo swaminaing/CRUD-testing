@@ -6,15 +6,19 @@ export type PostProps = {
   children: ReactNode;
 
   onDeletePost: (id: number) => void;
+  onUpdatePost: (id: number) => void;
 };
 
-function Post({ id, title, children, onDeletePost }: PostProps) {
+function Post({ id, title, children, onDeletePost, onUpdatePost }: PostProps) {
   return (
     <div className="post" key={id}>
       <h2>{title}</h2>
       <p>{children}</p>
 
-      <button onClick={() => onDeletePost(id)}>Delete</button>
+      <div className="buttons-container">
+        <button onClick={() => onDeletePost(id)}>Delete</button>
+        <button onClick={() => onUpdatePost(id)}>Edit</button>
+      </div>
     </div>
   );
 }
